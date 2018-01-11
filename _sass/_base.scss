@@ -104,20 +104,24 @@ nav
 .parallax
 {
 	position:absolute;
-	height: 200%;
+	top: 0;
+	height: 150%;
 	width: 100%;
 	z-index: -1;
 }
 .content
 {
+	top: 0;
 	background: #fff;
-	height: 600px; /*A enlever apres test*/
+ /*A enlever apres test*/
 }
 .parallax-container
 {
 	position:relative;
-	height: 500px;
+	height: 200px;
+	width: 100%;
 }
+
 #nav-toggle
 {
 	position: absolute;
@@ -168,6 +172,16 @@ nav
 
 @media only screen and (max-width: $breakpoint)
 {
+	header
+	{
+		margin-top: 100px !important;
+	}
+	.navigation
+	{
+		top:0;
+		width: 100%;
+		position: fixed;
+	}
 	.nav-mobile
 	{
 		display: block;
