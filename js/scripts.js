@@ -17,7 +17,7 @@
     });
   });
 
-})(jQuery);
+});
 var parallaxElements = $('.parallax'),
 parallaxQuantity = parallaxElements.length;
 
@@ -32,4 +32,4 @@ $(window).on('scroll', function() {
       });
     }
   });
-});
+})(jQuery);
