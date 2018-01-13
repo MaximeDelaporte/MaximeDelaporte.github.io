@@ -1,4 +1,5 @@
 $content-width: 1000px;
+$nav-width: 90%;
 $main: #19CCAA;
 $font-style: 'Open Sans', sans-serif;
 $font-color: #262626;
@@ -10,7 +11,7 @@ $light: #E7EDF4;
 $header:  #1D1425;
 
 $breakpoint: 799px;
-$nav-height: 70px;
+$nav-height: 40px;
 $nav-background: #262626;
 $nav-font-color: #ffffff;
 $link-hover-color: #2581DC;
@@ -18,6 +19,7 @@ $link-hover-color: #2581DC;
 nav
 {
 	float: right;
+
 	ul
 	{
 		list-style: none;
@@ -62,7 +64,12 @@ nav
 .navigation
 {
 	height: $nav-height;
+	width: 100%;
+	top:0;
 	background: $nav-background;
+	position: fixed;
+	z-index: 1;
+	font-size: 0.8em;
 }
 .brand
 {
@@ -81,7 +88,7 @@ nav
 }
 .nav-container
 {
-	max-width: $content-width;
+	max-width: $nav-width;
 	margin: 0 auto;
 }
 .nav-dropdown
@@ -101,34 +108,78 @@ nav
 	height: $nav-height;
 	width: $nav-height;
 }
-.parallax
-{
-	position:absolute;
-	top: 0;
-	height: 150%;
-	width: 100%;
-	z-index: -1;
+.parallax-container {
+  position: fixed;
+  overflow: visible;
+  width: 100%;
+  height: 850px;
 }
-.content
-{
-	top: 0;
-	background: #fff;
- /*A enlever apres test*/
+.parallax-layer {
+  width: 100%;
+  height: 500px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-position: bottom center;
+  background-repeat: repeat-x;
+  background-size: 960px 253px;
 }
-.parallax-container
-{
-	position:relative;
-	height: 200px;
-	width: 100%;
-}
+  .layer-0 {
+    top: 0;
+    z-index: 5;
+    background: #dbf0ff url('http://i.imgur.com/4hwp8up.png') no-repeat top 40px center;
+    background-size: 120px 138.5px;
+  }
+  .layer-1 {
+    top: -100px;
+    z-index: 5;
+    background-image: url('http://i.imgur.com/Ra2bzmb.png');
+  }
+  .layer-2 {
+    top: -50px;
+    z-index: 10;
+    background-image: url('http://i.imgur.com/jSOo9SK.png');
+  }
+  .layer-3 {
+    top: -10px;
+    z-index: 15;
+    background-image: url('http://i.imgur.com/DOZRBDj.png');
+  }
+  .layer-4 {
+    top: 65px;
+    z-index: 20;
+    background-image: url('http://i.imgur.com/JbSR9JY.png');
+  }
+  .layer-5 {
+    top: 150px;
+    z-index: 25;
+    background-image: url('http://i.imgur.com/Ti2mNxd.png');
+  }
 
+
+.content {
+  position: absolute;
+  top: 600px;
+	left: 0;
+  background: #415a6c;
+  width: 100%;
+  min-height: 1500px;
+
+}
+  .content h1 {
+    color: #fff;
+    font-size: 2em;
+    text-transform: uppercase;
+    text-align: center;
+  }
 #nav-toggle
 {
 	position: absolute;
-	left: 18px;
-	top: 22px;
+	right: 50px;
+	top: 18px;
 	cursor: pointer;
-	padding: 10px 35px 16px 0px;
+padding: 0;
+	//padding: 10px 35px 16px 0px;
 	span,
 	span:before,
 	span:after
@@ -185,6 +236,10 @@ nav
 	.nav-mobile
 	{
 		display: block;
+	}
+	.brand
+	{
+		left: 0;
 	}
 	nav
 	{

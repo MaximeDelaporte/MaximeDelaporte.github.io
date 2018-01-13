@@ -4,6 +4,7 @@ body {
 	font-family: $font-style;
 	font-size: 1.1em;
 	line-height: 1.6;
+	box-sizing: border-box;
 	-webkit-font-smoothing: antialiased;
 }
 h1,
@@ -41,7 +42,7 @@ header {
 	padding: 0px 15px;
 	text-align: center;
 	margin: 30px 0 0;
-	height: 60vh;
+	height: 40vh;
 	display: flex;
 	//justify-content: center;
 	//align-items: center;
@@ -54,10 +55,10 @@ main {
 time {
 	color: #898989;
 }
-.container {
-	max-width: $content-width;
-	margin: 0 auto;
-}
+//.container {
+	//max-width: $content-width;
+	//margin: 0 auto;
+//}
 
 /* Aside */
 
