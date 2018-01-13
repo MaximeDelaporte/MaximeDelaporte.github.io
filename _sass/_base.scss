@@ -157,7 +157,7 @@ nav
   }
 
 
-.content {
+.parallax-content {
   position: absolute;
   top: 600px;
 	left: 0;
@@ -166,12 +166,30 @@ nav
   min-height: 1500px;
 
 }
-  .content h1 {
+  .parallax-content h1 {
     color: #fff;
     font-size: 2em;
     text-transform: uppercase;
     text-align: center;
   }
+.gallery-container
+{
+	margin: 0 auto;
+	max-width: 1200px;
+	padding: 0 1rem;
+}
+.responsive-image
+{
+	max-width: 100%;
+}
+.cell
+{
+	margin: 1rem;
+	.cell img
+	{
+		display: block;
+	}
+}
 #nav-toggle
 {
 	position: absolute;
@@ -274,6 +292,23 @@ padding: 0;
 	{
 		display: block !important;
 	}
+	.grid
+	{
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+	}
+	.cell
+	{
+		width: calc(50% - 2rem);
+	}
+}
+@media screen and (min-width: 1080px)
+{
+		.cell
+		{
+			width: calc(33.3333% - 2rem);
+		}
 }
 article
 {
