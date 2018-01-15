@@ -164,7 +164,6 @@ nav
   background: #415a6c;
   width: 100%;
   min-height: 1500px;
-
 }
   .parallax-content h1 {
     color: #fff;
@@ -172,10 +171,36 @@ nav
     text-transform: uppercase;
     text-align: center;
   }
+	#timeline
+	{
+		position: relative;
+		padding: 2em 0;
+		margin: 2em 0;
+		max-width: $content-width;
+	}
+	#timeline::before
+	{
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 18px;
+		height:100%;
+		width: 4px;
+		background: #d7e4ed;
+	}
+	.cssanimation .timeline-img.is-hidden
+	{
+		visibility: hidden;
+	}
+	.cssanimation .timeline-img.bounce-in
+	{
+		visibility: visible;
+		animation: bounce-1 0.6s;
+	}
 .gallery-container
 {
 	margin: 0 auto;
-	max-width: 1200px;
+	max-width: $content-width;
 	padding: 0 1rem;
 }
 .responsive-image
@@ -238,7 +263,23 @@ padding: 0;
 		}
 	}
 }
-
+@keyframes bounce-1
+{
+ 	0%
+	{
+		opacity: 0;
+		transform: scale(0.5);
+	}
+	60%
+	{
+		opacity: 1;
+		transform: scale(1.2);
+	}
+	100%
+	{
+		transform: scale(1);
+	}
+}
 @media only screen and (max-width: $breakpoint)
 {
 	header
