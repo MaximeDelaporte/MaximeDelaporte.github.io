@@ -157,7 +157,7 @@ nav
   }
 
 
-.parallax-content 
+.parallax-content
 {
   position: absolute;
   top: 600px;
@@ -166,7 +166,7 @@ nav
   width: 100%;
   min-height: 1500px;
 }
-.parallax-content h1 
+.parallax-content h1
 {
   	color: #fff;
   	font-size: 2em;
@@ -190,12 +190,23 @@ nav
 		background: #d7e4ed;
 	}
 }
-
+.timeline-container
+ {
+	 max-width: $content-width;
+	 width:90%;
+	 margin: 0 auto;
+	 &::after
+	 {
+ 	 	content: '';
+		display:table;
+		clear:both;
+	 }
+ }
 
 .timeline-block
 {
 	position: relative;
-	margin: 2em 0;
+	margin: 4em 0;
 	&:first-child
 	{
 		margin-top:0;
@@ -203,6 +214,41 @@ nav
 	&:last-child
 	{
 		margin-bottom:0;
+	}
+	&:nth-child(even) .timeline-content .timeline-date
+	{
+		left:auto;
+		right: 122%;
+		text-align: right;
+	}
+	&:nth-child(even) .timeline-content
+	{
+		float: right;
+	}
+	&::after
+	{
+		content:"";
+		display: table;
+		clear: both;
+	}
+	.timeline-content
+	{
+		margin-left: 0;
+		padding: 1.6em;
+		width: 42%;
+		position: relative;
+		background: white;
+		border-radius: 0.25em;
+		padding: 1em;
+		box-shadow: 0 3px 0 #d7e4ed;
+		.timeline-date
+		{
+			position: absolute;
+			width: 100%;
+			left: 122%;
+			top: 6px;
+			font-size: 1rem;
+		}
 	}
 }
 .timeline-img
@@ -214,7 +260,7 @@ nav
 	height: 40px;
 	border-radius: 50%;
 	box-shadow: 0 0 0 4px $light, inset 0 2px 0 rgba(#000, .08), 0 3px 0 4px rgba(#000, .05);
-	img 
+	img
 	{
 		display: block;
 		width: 24px;
@@ -237,15 +283,15 @@ nav
 	{
 	background: green;
 	}
-	.cssanimation .timeline-img.is-hidden
-	{
-		visibility: hidden;
-	}
-	.cssanimation .timeline-img.bounce-in
-	{
-		visibility: visible;
-		@include animation(bounce-1 .6s);
-	}
+}
+.cssanimations .timeline-img.is-hidden, .cssanimations .timeline-content.is-hidden
+{
+	visibility: hidden;
+}
+.cssanimations .timeline-img.bounce-in, .cssanimations .timeline-content.bounce-in
+{
+	visibility: visible;
+	animation: bounce-1 0.6s;
 }
 @keyframes bounce-1
 {
