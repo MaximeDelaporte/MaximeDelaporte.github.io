@@ -24,17 +24,21 @@ $nav-background: #262626;
 $nav-font-color: #ffffff;
 $link-hover-color: #2581DC;
 
-html * {
+html * 
+{
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
-*, *:after, *:before {
+*, *:after, *:before 
+{
 	box-sizing:border-box;
 }
 
-body {
-	font: {
+body 
+{
+	font: 
+	{
 		size: 100%;
 		family: $primary-font; // variables inside partials > _variables.scss
 	}
@@ -42,41 +46,51 @@ body {
 	background-color: $background;
 }
 
-a {
+a
+{
 	color: $link;
 	text-decoration: none;
 	font-family: $secondary-font;
 }
 
-img {
+img
+{
 	max-width: 100%;
 }
 
-h1, h2 {
+h1, h2 
+{
 	font-family: $secondary-font;
 	font-weight: bold;
 }
 
-.container { /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+.container 
+{
+ /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
 	width: 90%;
 	max-width: $L; // breakpoints inside partials > _layout.scss
 	margin: 0 auto;
 
-	&::after { /* clearfix */
+	&::after 
+	{ /* clearfix */
 		content: '';
 		display: table;
 		clear: both;
 	}
 }
-#timeline {
+
+#timeline 
+{
 	position: relative;
 	padding: 2em 0;
-	margin: {
+	margin: 
+	{
 		top: 2em;
 		bottom: 2em;
 	}
 
-	&::before {
+	&::before 
+	{
 		/* this is the vertical line */
 		content: '';
 		position: absolute;
@@ -87,46 +101,56 @@ h1, h2 {
 		background: darken($background, 5%);
 	}
 
-	@include MQ(L) {
-		margin: {
+	@include MQ(L) 
+	{
+		margin: 
+		{
 			top: 3em;
 			bottom: 3em;
 		}
 
-		&::before {
+		&::before 
+		{
 			left: 50%;
 			margin-left: -2px;
 		}
 	}
 }
 
-.timeline-block {
+.timeline-block 
+{
 	position: relative;
 	margin: 2em 0;
 	@include clearfix;
 
-	&:first-child {
+	&:first-child 
+	{
 		margin-top: 0;
 	}
 
-	&:last-child {
+	&:last-child
+	{
 		margin-bottom: 0;
 	}
 
-	@include MQ(L) {
+	@include MQ(L) 
+	{
 		margin: 4em 0;
 
-		&:first-child {
+		&:first-child 
+		{
 			margin-top: 0;
 		}
 
-		&:last-child {
+		&:last-child 
+		{
 			margin-bottom: 0;
 		}
 	}
 }
 
-.timeline-img {
+.timeline-img 
+{
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -135,7 +159,8 @@ h1, h2 {
 	border-radius: 50%;
 	box-shadow: 0 0 0 4px $color-3, inset 0 2px 0 rgba(#000, .08), 0 3px 0 4px rgba(#000, .05) ;
 
-	img {
+	img 
+	{
 		display: block;
 		width: 24px;
 		height: 24px;
@@ -146,19 +171,23 @@ h1, h2 {
 		margin-top: -12px;
 	}
 
-	&.picture {
+	&.picture 
+	{
 		background: $color-4;
 	}
 
-	&.movie {
+	&.movie 
+	{
 		background: $color-2;
 	}
 
-	&.location {
+	&.location 
+	{
 		background: $color-5;
 	}
 
-	@include MQ(L) {
+	@include MQ(L) 
+	{
 		width: 60px;
 		height: 60px;
 		left: 50%;
@@ -168,34 +197,41 @@ h1, h2 {
 		-webkit-transform: translateZ(0);
 		-webkit-backface-visibility: hidden;
 
-		.cssanimations &.is-hidden {
+		.cssanimations &.is-hidden 
+		{
 			visibility: hidden;
 		}
 
-		.cssanimations &.bounce-in {
+		.cssanimations &.bounce-in 
+		{
 			visibility: visible;
 			animation: cd-bounce-1 .6s;
 		}
 	}
 }
 
-@keyframes cd-bounce-1 {
-	0% {
+@keyframes cd-bounce-1 
+{
+	0% 
+	{
 		opacity: 0;
 		transform: scale(.5);
 	}
 
-	60% {
+	60% 
+	{
 		opacity: 1;
 		transform: scale(1.2);
 	}
 
-	100% {
+	100% 
+	{
 		transform: scale(1);
 	}
 }
 
-.timeline-content {
+.timeline-content 
+{
 	position: relative;
 	margin-left: 60px;
 	background: $color-3;
@@ -204,42 +240,50 @@ h1, h2 {
 	box-shadow: 0 3px 0 darken($background, 5%);
 	@include clearfix;
 
-	h2 {
+	h2 
+	{
 		color: $color-1;
 	}
 
-	p, .timeline-read-more, .timeline-date {
+	p, .timeline-read-more, .timeline-date 
+	{
 		@include font-size(13px);
 	}
 
-	.timeline-read-more, .timeline-date {
+	.timeline-read-more, .timeline-date 
+	{
 		display: inline-block;
 	}
 
-	p {
+	p
+	{
 		margin: 1em 0;
 		line-height: 1.6;
 	}
 
-	.timeline-read-more {
+	.timeline-read-more 
+	{
 		float: right;
 		padding: .8em 1em;
 		background: $link;
 		color: $color-3;
 		@include border-radius;
 
-		.no-touch &:hover {
+		.no-touch &:hover 
+		{
 			background-color: lighten($link, 5%);
 		}
 	}
 
-	.timeline-date {
+	.timeline-date 
+	{
 		float: left;
 		padding: .8em 0;
 		opacity: .7;
 	}
 
-	&::before {
+	&::before 
+	{
 		content: '';
 		position: absolute;
 		top: 16px;
@@ -250,37 +294,45 @@ h1, h2 {
 		border-right: 7px solid $color-3;
 	}
 
-	@include MQ(M) {
-		h2 {
+	@include MQ(M) 
+	{
+		h2 
+		{
 			@include font-size(20px);
 		}
 
-		p {
+		p 
+		{
 			@include font-size(16px);
 		}
 
-		.timeline-read-more, .cd-date {
+		.timeline-read-more, .cd-date 
+		{
 			@include font-size(14px);
 		}
 	}
 
-	@include MQ(L) {
+	@include MQ(L) 
+	{
 		margin-left: 0;
 		padding: 1.6em;
 		width: 45%;
 
-		&::before {
+		&::before 
+		{
 			top: 24px;
 			left: 100%;
 			border-color: transparent;
 			border-left-color: $color-3;
 		}
 
-		.timeline-read-more {
+		.timeline-read-more 
+		{
 			float: left;
 		}
 
-		.timeline-date {
+		.timeline-date 
+		{
 			position: absolute;
 			width: 100%;
 			left: 122%;
@@ -288,10 +340,12 @@ h1, h2 {
 			@include font-size(16px);
 		}
 
-		.timeline-block:nth-child(even) & {
+		.timeline-block:nth-child(even) & 
+		{
 			float: right;
 
-			&::before {
+			&::before 
+			{
 				top: 24px;
 				left: auto;
 				right: 100%;
@@ -299,70 +353,84 @@ h1, h2 {
 				border-right-color: $color-3;
 			}
 
-			.timeline-read-more {
+			.timeline-read-more 
+			{
 				float: right;
 			}
 
-			.timeline-date {
+			.timeline-date 
+			{
 				left: auto;
 				right: 122%;
 				text-align: right;
 			}
 		}
 
-		.cssanimations &.is-hidden {
+		.cssanimations &.is-hidden 
+		{
 			visibility: hidden;
 		}
 
-		.cssanimations &.bounce-in {
+		.cssanimations &.bounce-in 
+		{
 			visibility: visible;
 			animation: cd-bounce-2 .8s;
 		}
 	}
 }
 
-@include MQ(L) {
+
+@include MQ(L) 
+{
 	/* inverse bounce effect on even content blocks */
-	 .timeline-block:nth-child(even) .timeline-content.bounce-in {
-		animation-name: cd-bounce-2-inverse;
+	.timeline-block:nth-child(odd) .timeline-content.bounce-in 
+	{
+		animation-name: cd-bounce-2;
 		animation-duration: 0.6s;
 	}
-@include MQ(L) {
-	/* inverse bounce effect on even content blocks */
-	 .timeline-block:nth-child(odd) .timeline-content.bounce-in {
-		animation-name: cd-bounce-2;
+	.timeline-block:nth-child(even) .timeline-content.bounce-in 
+	{
+		animation-name: cd-bounce-2-inverse;
 		animation-duration: 0.6s;
 	}
 }
 
-@keyframes cd-bounce-2 {
-	0% {
+@keyframes cd-bounce-2 
+{
+	0% 
+	{
 		opacity: 0;
 		transform: translateX(-100px);
 	}
 
-	60% {
+	60% 
+	{
 		opacity: 1;
 		transform: translateX(20px);
 	}
 
-	100% {
+	100% 
+	{
 		transform: translateX(0);
 	}
 }
 
-@keyframes cd-bounce-2-inverse {
-	0% {
+@keyframes cd-bounce-2-inverse 
+{
+	0% 
+	{
 		opacity: 0;
 		transform: translateX(100px);
 	}
 
-	60% {
+	60% 
+	{
 		opacity: 1;
 		transform: translateX(-20px);
 	}
 
-	100% {
+	100% 
+	{
 		transform: translateX(0);
 	}
 }
@@ -501,12 +569,12 @@ nav
     z-index: 20;
     background-image: url('/img/Layer5_test.png');
   }
-  .layer-5 {
+  .layer-5 
+  {
     top: 150px;
     z-index: 25;
     background-image: url('/img/Layer6_test.png');
   }
- }
 
 
 .parallax-content
