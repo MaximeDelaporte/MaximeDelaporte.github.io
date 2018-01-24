@@ -24,20 +24,20 @@ $nav-background: #262626;
 $nav-font-color: #ffffff;
 $link-hover-color: #2581DC;
 
-html * 
+html *
 {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
-*, *:after, *:before 
+*, *:after, *:before
 {
 	box-sizing:border-box;
 }
 
-body 
+body
 {
-	font: 
+	font:
 	{
 		size: 100%;
 		family: $primary-font; // variables inside partials > _variables.scss
@@ -58,7 +58,7 @@ img
 	max-width: 100%;
 }
 
-h1, h2 
+h1, h2
 {
 	font-family: $secondary-font;
 	font-weight: bold;
@@ -71,21 +71,21 @@ h1, h2
 	white-space: nowrap;
 }
 
-.container 
+.container
 {
  /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
 	width: 90%;
 	max-width: $L; // breakpoints inside partials > _layout.scss
 	margin: 0 auto;
 
-	&::after 
+	&::after
 	{ /* clearfix */
 		content: '';
 		display: table;
 		clear: both;
 	}
-}/*
-.nav-trigger 
+}
+.nav-trigger
 {
 	position: absolute;
 	z-index: 4;
@@ -177,12 +177,14 @@ h1, h2
 		}
 	}
 }
-*/
+
 .projects-container
 {
 	position: relative;
 	z-index: 4;
 	overflow-x: hidden;
+	width: $content-width;
+	display: block;
 
 	&.project-open
 	{
@@ -251,7 +253,7 @@ h1, h2
 	}
 	@include MQ(M)
 	{
-		li 
+		li
 		{
 			display: inline-block;
 			height: 100%;
@@ -445,19 +447,107 @@ li.selected .project-title,
 }
 .touch .projects li.selected .project-title::after
 {
-	transition: transform 0s;	
+	transition: transform 0s;
 }
-#timeline 
+.project-info
+{
+	display:none;
+	padding: 4em 0;
+	background-color: white;
+	color: tint(black, 40%);
+	.content-visible &
+	{
+		display: block;
+	}
+
+	p
+	{
+		width: 90%;
+		max-width: 800px;
+		margin: 0 auto;
+		line-height: 2;
+	}
+}
+
+.projects-container .scroll
+{
+	display: block;
+	position: absolute;
+	z-index: 5;
+	bottom: 30px;
+	left: 50%;
+	width: 44px;
+	height: 44px;
+
+	cursor: pointer;
+	border: none;
+
+	&:focus
+	{
+		outline: none;
+	}
+	background: url('../img/cd-icon-arrow.svg') no-repeat center center;
+	visibility: hidden;
+	transform: translateX(-50%) scale(0);
+	transition: transform .3s 0s, visibility 0s .3s;
+}
+
+.projects-container.project-open .scroll
+{
+	visibility: visible;
+	transform: translateX(-50%) scale(1);
+	transition: transform 0.4s 0s, visibility 0s 0s;
+	animation: cd-translate 1.2s 0.8s;
+	animation-iteration-count: 2;
+}
+.no-touch .projects-container.project-open .scroll:hover
+{
+	transform: translateX(-50%) scale(1.2);
+}
+@keyframes cd-translate
+{
+		0%
+		{
+			transform: translateX(-50%) scale(1);
+		}
+		50%
+		{
+			transform: translateY(10px) translateX(-50%) scale(1);
+		}
+		100%
+		{
+			transform: translateX(-50%) scale(1);
+		}
+}
+.no-js .primary-navbar
+{
+		display: block;
+		position: static;
+		opacity: 1;
+		margin-bottom: 1.5em;
+
+		ul
+		{
+			display: block;
+			@include clearfix;
+			padding: 0 5%;
+		}
+		li:not(.cd-label)
+		{
+			display: inline-block;
+		}
+}
+#timeline
 {
 	position: relative;
 	padding: 2em 0;
-	margin: 
+	margin:
 	{
 		top: 2em;
 		bottom: 2em;
 	}
 
-	&::before 
+	&::before
 	{
 		/* this is the vertical line */
 		content: '';
@@ -469,15 +559,15 @@ li.selected .project-title,
 		background: darken($background, 5%);
 	}
 
-	@include MQ(M) 
+	@include MQ(M)
 	{
-		margin: 
+		margin:
 		{
 			top: 3em;
 			bottom: 3em;
 		}
 
-		&::before 
+		&::before
 		{
 			left: 50%;
 			margin-left: -2px;
@@ -485,13 +575,13 @@ li.selected .project-title,
 	}
 }
 
-.timeline-block 
+.timeline-block
 {
 	position: relative;
 	margin: 2em 0;
 	@include clearfix;
 
-	&:first-child 
+	&:first-child
 	{
 		margin-top: 0;
 	}
@@ -501,23 +591,23 @@ li.selected .project-title,
 		margin-bottom: 0;
 	}
 
-	@include MQ(M) 
+	@include MQ(M)
 	{
 		margin: 4em 0;
 
-		&:first-child 
+		&:first-child
 		{
 			margin-top: 0;
 		}
 
-		&:last-child 
+		&:last-child
 		{
 			margin-bottom: 0;
 		}
 	}
 }
 
-.timeline-img 
+.timeline-img
 {
 	position: absolute;
 	top: 0;
@@ -527,7 +617,7 @@ li.selected .project-title,
 	border-radius: 50%;
 	box-shadow: 0 0 0 4px $color-3, inset 0 2px 0 rgba(#000, .08), 0 3px 0 4px rgba(#000, .05) ;
 
-	img 
+	img
 	{
 		display: block;
 		width: 24px;
@@ -539,22 +629,22 @@ li.selected .project-title,
 		margin-top: -12px;
 	}
 
-	&.picture 
+	&.picture
 	{
 		background: $color-4;
 	}
 
-	&.movie 
+	&.movie
 	{
 		background: $color-2;
 	}
 
-	&.location 
+	&.location
 	{
 		background: $color-5;
 	}
 
-	@include MQ(M) 
+	@include MQ(M)
 	{
 		width: 60px;
 		height: 60px;
@@ -565,12 +655,12 @@ li.selected .project-title,
 		-webkit-transform: translateZ(0);
 		-webkit-backface-visibility: hidden;
 
-		.cssanimations &.is-hidden 
+		.cssanimations &.is-hidden
 		{
 			visibility: hidden;
 		}
 
-		.cssanimations &.bounce-in 
+		.cssanimations &.bounce-in
 		{
 			visibility: visible;
 			animation: cd-bounce-1 .6s;
@@ -578,27 +668,27 @@ li.selected .project-title,
 	}
 }
 
-@keyframes cd-bounce-1 
+@keyframes cd-bounce-1
 {
-	0% 
+	0%
 	{
 		opacity: 0;
 		transform: scale(.5);
 	}
 
-	60% 
+	60%
 	{
 		opacity: 1;
 		transform: scale(1.2);
 	}
 
-	100% 
+	100%
 	{
 		transform: scale(1);
 	}
 }
 
-.timeline-content 
+.timeline-content
 {
 	position: relative;
 	margin-left: 60px;
@@ -608,17 +698,17 @@ li.selected .project-title,
 	box-shadow: 0 3px 0 darken($background, 5%);
 	@include clearfix;
 
-	h2 
+	h2
 	{
 		color: $color-1;
 	}
 
-	p, .timeline-read-more, .timeline-date 
+	p, .timeline-read-more, .timeline-date
 	{
 		@include font-size(13px);
 	}
 
-	.timeline-read-more, .timeline-date 
+	.timeline-read-more, .timeline-date
 	{
 		display: inline-block;
 	}
@@ -629,7 +719,7 @@ li.selected .project-title,
 		line-height: 1.6;
 	}
 
-	.timeline-read-more 
+	.timeline-read-more
 	{
 		float: right;
 		padding: .8em 1em;
@@ -637,20 +727,20 @@ li.selected .project-title,
 		color: $color-3;
 		@include border-radius;
 
-		.no-touch &:hover 
+		.no-touch &:hover
 		{
 			background-color: lighten($link, 5%);
 		}
 	}
 
-	.timeline-date 
+	.timeline-date
 	{
 		float: left;
 		padding: .8em 0;
 		opacity: .7;
 	}
 
-	&::before 
+	&::before
 	{
 		content: '';
 		position: absolute;
@@ -662,31 +752,31 @@ li.selected .project-title,
 		border-right: 7px solid $color-3;
 	}
 
-	@include MQ(M) 
+	@include MQ(M)
 	{
-		h2 
+		h2
 		{
 			@include font-size(20px);
 		}
 
-		p 
+		p
 		{
 			@include font-size(16px);
 		}
 
-		.timeline-read-more, .cd-date 
+		.timeline-read-more, .cd-date
 		{
 			@include font-size(14px);
 		}
 	}
 
-	@include MQ(M) 
+	@include MQ(M)
 	{
 		margin-left: 0;
 		padding: 1.6em;
 		width: 45%;
 
-		&::before 
+		&::before
 		{
 			top: 24px;
 			left: 100%;
@@ -694,12 +784,12 @@ li.selected .project-title,
 			border-left-color: $color-3;
 		}
 
-		.timeline-read-more 
+		.timeline-read-more
 		{
 			float: left;
 		}
 
-		.timeline-date 
+		.timeline-date
 		{
 			position: absolute;
 			width: 100%;
@@ -708,11 +798,11 @@ li.selected .project-title,
 			@include font-size(16px);
 		}
 
-		.timeline-block:nth-child(even) & 
+		.timeline-block:nth-child(even) &
 		{
 			float: right;
 
-			&::before 
+			&::before
 			{
 				top: 24px;
 				left: auto;
@@ -721,12 +811,12 @@ li.selected .project-title,
 				border-right-color: $color-3;
 			}
 
-			.timeline-read-more 
+			.timeline-read-more
 			{
 				float: right;
 			}
 
-			.timeline-date 
+			.timeline-date
 			{
 				left: auto;
 				right: 122%;
@@ -734,12 +824,12 @@ li.selected .project-title,
 			}
 		}
 
-		.cssanimations &.is-hidden 
+		.cssanimations &.is-hidden
 		{
 			visibility: hidden;
 		}
 
-		.cssanimations &.bounce-in 
+		.cssanimations &.bounce-in
 		{
 			visibility: visible;
 			animation: cd-bounce-2 .8s;
@@ -748,56 +838,56 @@ li.selected .project-title,
 }
 
 
-@include MQ(M) 
+@include MQ(M)
 {
 	/* inverse bounce effect on even content blocks */
-	.timeline-block:nth-child(odd) .timeline-content.bounce-in 
+	.timeline-block:nth-child(odd) .timeline-content.bounce-in
 	{
 		animation-name: cd-bounce-2;
 		animation-duration: 0.6s;
 	}
-	.timeline-block:nth-child(even) .timeline-content.bounce-in 
+	.timeline-block:nth-child(even) .timeline-content.bounce-in
 	{
 		animation-name: cd-bounce-2-inverse;
 		animation-duration: 0.6s;
 	}
 }
 
-@keyframes cd-bounce-2 
+@keyframes cd-bounce-2
 {
-	0% 
+	0%
 	{
 		opacity: 0;
 		transform: translateX(-100px);
 	}
 
-	60% 
+	60%
 	{
 		opacity: 1;
 		transform: translateX(20px);
 	}
 
-	100% 
+	100%
 	{
 		transform: translateX(0);
 	}
 }
 
-@keyframes cd-bounce-2-inverse 
+@keyframes cd-bounce-2-inverse
 {
-	0% 
+	0%
 	{
 		opacity: 0;
 		transform: translateX(100px);
 	}
 
-	60% 
+	60%
 	{
 		opacity: 1;
 		transform: translateX(-20px);
 	}
 
-	100% 
+	100%
 	{
 		transform: translateX(0);
 	}
@@ -855,7 +945,7 @@ nav
 	top:0;
 	background: $nav-background;
 	position: fixed;
-	z-index: 1;
+	z-index: 10;
 	font-size: 0.8em;
 }
 .brand
@@ -937,7 +1027,7 @@ nav
     z-index: 20;
     background-image: url('/img/Layer5_test.png');
   }
-  .layer-5 
+  .layer-5
   {
     top: 150px;
     z-index: 25;
@@ -1085,7 +1175,7 @@ nav
 	width: 100%;
 	overflow: hidden;
 	transition: transform 0.5s;
-	a 
+	a
 	{
 		display: block;
 		height: 100vh;
@@ -1127,7 +1217,7 @@ nav
 	opacity: 1;
 	transition: opacity 0s;
 }
-@include MQ(M) 
+@include MQ(M)
 {
 	.nav-list
 	{
@@ -1144,7 +1234,7 @@ nav
 		width: calc(50% - 2rem);
 	}
 }
-@include MQ(L) 
+@include MQ(L)
 {
 	.cell
 	{
