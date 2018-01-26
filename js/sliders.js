@@ -4,10 +4,39 @@ jQuery(document).ready(function($){
     projectsPreviewWrapper = projectsContainer.find('.projects-previews'),
     projectPreviews = projectsPreviewWrapper.children('li'),
     projects = projectsContainer.find('.projects'),
-    navigationTrigger = $('.nav-trigger'),
-    navigation = $('.primary-nav'),
+    navigationTrigger = $('.close-trigger'),
+    navigation = $('.close'),
     //if browser doesn't support CSS transitions...
     transitionsNotSupported = ( $('.no-csstransitions').length > 0);
+
+    var $overlay = $('<div id="overlay"></div>');
+var $image = $("<img>");
+
+//An image to overlay
+$overlay.append($image);
+
+//Add overlay
+$("body").append($overlay);
+
+  //click the image and a scaled version of the full size image will appear
+  $("#photo-gallery a").click( function(event) {
+    event.preventDefault();
+    var imageLocation = $(this).attr("href");
+
+    //update overlay with the image linked in the link
+    $image.attr("src", imageLocation);
+
+    //show the overlay
+    $overlay.show();
+  } );
+
+  $("#overlay").click(function() {
+    $( "#overlay" ).hide();
+  });
+
+
+
+
 
   var animating = false,
     //will be used to extract random numbers for projects slide up/slide down effect
@@ -23,6 +52,27 @@ jQuery(document).ready(function($){
       openProject($(this).parent('li'));
     }
   });
+  if ($('#back-to-top').length) {
+    var scrollTrigger = 100, // px
+        backToTop = function () {
+            var scrollTop = $(window).scrollTop();
+            if (scrollTop > scrollTrigger) {
+                $('#back-to-top').addClass('show');
+            } else {
+                $('#back-to-top').removeClass('show');
+            }
+        };
+    backToTop();
+    $(window).on('scroll', function () {
+        backToTop();
+    });
+    $('#back-to-top').on('click', function (e) {
+        e.preventDefault();
+        $('html,body').animate({
+            scrollTop: 0
+        }, 700);
+    });
+}
 
   navigationTrigger.on('click', function(event){
     event.preventDefault();
@@ -53,7 +103,7 @@ jQuery(document).ready(function($){
 
   //scroll down to project info
   projectsContainer.on('click', '.scroll', function(){
-    projectsContainer.animate({'scrollTop':$(window).height()}, 500); 
+      projectsContainer.animate({'scrollTop':$(window).height()}, 500); 
   });
 
   //check if background-images have been loaded and show project previews
@@ -98,7 +148,6 @@ jQuery(document).ready(function($){
       animating = false;
     }
   }
-
   function slideToggleProjects(projectsPreviewWrapper, projectIndex, index, bool) {
     if(index == 0 ) createArrayRandom();
     if( projectIndex != -1 && index == 0 ) index = 1;
