@@ -91,8 +91,8 @@ h1, h2
 	position: relative;
 	z-index: 4;
 	overflow-x: hidden;
-
-
+	
+	
 
 	&.project-open
 	{
@@ -394,7 +394,7 @@ li.selected .project-title,
 	border: none;
 
 	outline: none;
-
+	
 }
 
 .projects-container .scroll
@@ -975,12 +975,12 @@ nav
   	text-align: center;
 }
 
-/*Gallery CSS*/
-.gallery-container::after
+
+.gallery-container
 {
-	content:"";
-	display: table;
-	clear:both;
+	margin: 0 auto;
+	max-width: $content-width;
+	padding: 0 1rem;
 }
 .responsive-image
 {
@@ -993,89 +993,6 @@ nav
 	{
 		display: block;
 	}
-}
-.modal-content
-{
-	position: relative;
-	background-color: #fefefe;
-	margin: auto;
-	padding:0;
-	width: 90%;
-	max-width: 1200px;
-}
-.closeModal
-{
-		color: white;
-		position: absolute;
-		top: 10px;
-		right: 25px;
-		font-size: 35px;
-		font-weight: bold;
-}
-.closeModal:hover,
-.closeModal:focus
-{
-		color: #999;
-		text-decoration:none;
-		cursor:pointer;
-}
-.photo-slides
-{
-	display: none;
-}
-.prev, .next
-{
-		cursor: pointer;
-		position: absolute;
-		top:50%;
-		width: auto;
-		padding: 16px;
-		margin-top: -50px;
-		color: white;
-		font-weight: bold;
-		font-size:20px;
-		transition: 0.6s ease;
-		user-select: none;
-		-webkit-user-select:none;
-}
-.next
-{
-	right: 0;
-}
-.prev:hover, .next:hover
-{
-	background-color: rgba(0,0,0,0.8);
-}
-.numbertext
-{
-	color: #f2f2f2;
-	font-size: 12px;
-	padding:8px 12px;
-	position: absolute;
-	top: 0;
-}
-.caption-container
-{
-	text-align: center;
-	background-color: black;
-	padding: 2px 16px;
-	color: white;
-}
-img.demo
-{
-	opacity: 0.6;
-}
-
-.active, .demo:hover
-{
-	opacity: 1;
-}
-img.hover-shadow
-{
-	transition: 0.3s;
-}
-.hover-shadow:hover{
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 #nav-toggle
 {
@@ -1126,7 +1043,7 @@ img.hover-shadow
 	}
 }
 
-@media only screen and (max-width: $M)
+@media only screen and (max-width: $breakpoint)
 {
 	header
 	{
@@ -1237,14 +1154,14 @@ img.hover-shadow
 	}
 	.cell
 	{
-		width: calc(33.333% - 2rem);
+		width: calc(50% - 2rem);
 	}
 }
 @include MQ(L)
 {
 	.cell
 	{
-		width: calc(25% - 2rem);
+		width: calc(33.3333% - 2rem);
 	}
 	.projects-previews li
 	{
