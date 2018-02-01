@@ -19,7 +19,7 @@ $overlay.append($image);
 $("body").append($overlay);
 
   //click the image and a scaled version of the full size image will appear
-  $("#photo-gallery a").click( function(event) {
+  $("#photo-gallery a").on("click", function(event) {
     event.preventDefault();
     var imageLocation = $(this).attr("href");
 
@@ -40,7 +40,7 @@ $("body").append($overlay);
 
   var animating = false,
     //will be used to extract random numbers for projects slide up/slide down effect
-    numRandoms = projects.find('li').length, 
+    numRandoms = projects.find('li').length,
     uniqueRandoms = [];
 
   //open project
@@ -66,7 +66,7 @@ $("body").append($overlay);
     $(window).on('scroll', function () {
         backToTop();
     });
-    $('#back-to-top').on('click', function (e) {
+    $('.back-to-top').on('click', function (e) {
         e.preventDefault();
         $('html,body').animate({
             scrollTop: 0
@@ -76,7 +76,7 @@ $("body").append($overlay);
 
   navigationTrigger.on('click', function(event){
     event.preventDefault();
-    
+
     if( animating == false ) {
       animating = true;
       if( navigationTrigger.hasClass('project-open') ) {
@@ -96,14 +96,15 @@ $("body").append($overlay);
         if(transitionsNotSupported) projectPreviews.addClass('slide-out');
         else slideToggleProjects(projectsPreviewWrapper.children('li'), -1, 0, true);
       }
-    } 
+    }
 
     if(transitionsNotSupported) animating = false;
   });
 
   //scroll down to project info
   projectsContainer.on('click', '.scroll', function(){
-      projectsContainer.animate({'scrollTop':$(window).height()}, 500); 
+    debugger;
+      projectsContainer.animate({'scrollTop':$(window).innerHeight()}, 500);
   });
 
   //check if background-images have been loaded and show project previews
@@ -125,12 +126,12 @@ $("body").append($overlay);
   function openProject(projectPreview) {
     var projectIndex = projectPreview.index();
     projects.children('li').eq(projectIndex).add(projectPreview).addClass('selected');
-    
+
     if( transitionsNotSupported ) {
       projectPreviews.addClass('slide-out').removeClass('selected');
       projects.children('li').eq(projectIndex).addClass('content-visible');
       animating = false;
-    } else { 
+    } else {
       slideToggleProjects(projectPreviews, projectIndex, 0, true);
     }
   }
@@ -154,7 +155,7 @@ $("body").append($overlay);
 
     var randomProjectIndex = makeUniqueRandom();
     if( randomProjectIndex == projectIndex ) randomProjectIndex = makeUniqueRandom();
-    
+
     if( index < numRandoms - 1 ) {
       projectsPreviewWrapper.eq(randomProjectIndex).toggleClass('slide-out', bool);
       setTimeout( function(){
@@ -162,7 +163,7 @@ $("body").append($overlay);
         slideToggleProjects(projectsPreviewWrapper, projectIndex, index + 1, bool);
       }, 150);
     } else if ( index == numRandoms - 1 ) {
-      //this is the last project preview to be animated 
+      //this is the last project preview to be animated
       projectsPreviewWrapper.eq(randomProjectIndex).toggleClass('slide-out', bool).one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
         if( projectIndex != -1) {
           projects.children('li.selected').addClass('content-visible');
@@ -220,7 +221,7 @@ $("body").append($overlay);
       $this.data('loaded-count',0);
       $.each( bgImgs, function(key, value){
         var img = value.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
-        $('<img/>').attr('src', img).load(function() {
+        $('<img/>').attr('src', img).on("load",function() {
           $(this).remove(); // prevent memory leaks
           $this.data('loaded-count',$this.data('loaded-count')+1);
           if ($this.data('loaded-count') >= bgImgs.length) {
