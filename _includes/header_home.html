@@ -1,17 +1,22 @@
 <section class="navigation">
 	<div class="nav-container">
 		<div class="brand">
-				<a href="../index.html">Home</a>
+				<a href="../index.html"><img src="../img/Icons/home.png" class="back-to-top" alt="Home"></a>
 		</div>
 	<nav>
 		<div class="nav-mobile">
 			<a id="nav-toggle" href="#!"><span></span></a>
 		</div>
 		<ul class="nav-list">
-			{% for page in site.pages %} {% if page.title %}
 
-				<li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
-				{% endif %} {% endfor %}
+				<li><a href="#about">About</a></li>
+				<li><a href="#game-design">Game Design</a></li>
+				<li><a href="#gallery">Gallery</a></li>
+				<li><a href="#github">GitHub Projects</a></li>
+				<li><a href="#contact">Contact</a></li>
+
+
+
 		</ul>
 	</nav>
 </div>

@@ -66,8 +66,8 @@ $("body").append($overlay);
     $(window).on('scroll', function () {
         backToTop();
     });
-    $('.back-to-top').on('click', function (e) {
-        e.preventDefault();
+    $('.back-to-top').on('click', function (event) {
+        event.preventDefault();
         $('html,body').animate({
             scrollTop: 0
         }, 700);
