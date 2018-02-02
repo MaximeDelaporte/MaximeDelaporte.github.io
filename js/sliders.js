@@ -103,8 +103,7 @@ $("body").append($overlay);
 
   //scroll down to project info
   projectsContainer.on('click', '.scroll', function(){
-    debugger;
-      projectsContainer.animate({'scrollTop':$(window).innerHeight()}, 500);
+      projectsContainer.animate({'scrollTop':$('.project-info')}, 500);
   });
 
   //check if background-images have been loaded and show project previews

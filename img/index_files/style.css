@@ -1,0 +1,75 @@
+body
+{
+margin: 0;
+padding: 0;
+display: flex;
+}
+.nav
+{
+  background-color: lightblue;
+  width: 300px;
+  min-height: 100vh;
+  z-index: 2;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.4);
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: hidden;
+}/*
+div[data-use="list"] ul
+{
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+div[data-use="list"] ul li
+{
+  padding: 5px;
+  font-weight: bold;
+  color: white;
+}
+div[data-use="list"] ul li:hover
+{
+  background-color: white;
+  color: lightblue;
+  cursor: pointer;
+}
+div[data-use="detail"]
+{
+  position: fixed;
+  background-color: white;
+  max-width: 80vw;
+  min-height: 100vh;
+  padding-left: 320px;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+div[data-use="detail"] h2.name
+{
+  font-size: 3em;
+  text-align: center;
+}
+div[data-use="detail"] div.serie-info
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: lightblue;
+}
+div[data-use="detail"] p.status
+{
+  font-size: 1.2em;
+  font-weight: bold;
+}
+div[data-use="detail"] p.summary
+{
+  font-style: italic;
+  font-size: 1.2em;
+}
