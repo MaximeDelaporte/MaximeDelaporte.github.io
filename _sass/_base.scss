@@ -11,24 +11,10 @@
 @import '../partials/timeline'; // timeline css
 
 @import "../partials/parallax"; // parallax css
-$content-width: 1000px;
-$showcase-height: 17em;
-$nav-width: 100%;
-$main: #19CCAA;
-$font-style: 'Open Sans', sans-serif;
-$font-color: #262626;
-$link-color: #425469;
-$link-hover-color: $main;
-$heading-font: 'Muli', sans-serif;
-$heading-font-color: #425469;
-$light: #E7EDF4;
-$header:  #1D1425;
 
-$breakpoint: 799px;
-$nav-height: 40px;
-$nav-background: #262626;
-$nav-font-color: #ffffff;
-$link-hover-color: #2581DC;
+@import "../partials/gallery"; // gallery css
+
+@import "../partials/github"; //github projects css
 
 html *
 {
@@ -248,24 +234,7 @@ nav
 }
 
 
-.gallery-container
-{
-	margin: 0 auto;
-	max-width: $content-width;
-	padding: 0 1rem;
-}
-.responsive-image
-{
-	max-width: 100%;
-}
-.cell
-{
-	margin: 1rem;
-	.cell img
-	{
-		display: block;
-	}
-}
+
 #nav-toggle
 {
 	position: absolute;
@@ -423,94 +392,6 @@ nav
 
 
 
-#photos {
-  opacity: .88;
-}
-
-#photos img {
-  width: 30%;
-  float: left;
-  display: block;
-  margin: 2px;
-}
-
-#photos ul {
-  list-style: none;
-  margin: 0px auto;
-  padding: 10px;
-  display: block;
-  max-width: 780px;
-  text-align: center;
-}
-
-#overlay {
-  background: rgba(0,0,0, .8);
-  width: 100%;
-  height: 100%;
-  position: fixed;;
-  top: 0;
-  left: 0;
-  display: none;
-  text-align: center;
-	z-index: 5;
-}
-
-#overlay img {
-  margin: 10% auto 0;
-  width: 550px;
-  border-radius: 5px;
-}
-
-#photos {
-  width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	padding-left: 10%;
-	padding-right: 5%;
-}
-
-#photo-gallery {
-  width: 100%;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-
-	ul
-	{
-		margin: 0;
-		padding: 0;
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-
-		li
-		{
-			margin: 0;
-			padding: 0;
-			width: 100%;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			a
-			{
-				display: flex;
-				margin: 0;
-				padding: 15px;
-				align-items: center;
-			}
-		}
-	}
-}
-
 article
 {
 	max-width: $content-width;
@@ -543,156 +424,6 @@ article
     text-decoration: none;
     transition: opacity 0.2s ease-out;
     opacity: 0;
-}
-
-.showcase {
-  position: relative;
-  max-width: $content-width;
-  height: $showcase-height;
-  margin: 1em auto;
-  overflow: hidden;
-
-  background: transparent;
-}
-
-// Thumbnails
-.thumbnail {
-  position: absolute;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 300px;
-  z-index: 1;
-
-  background: #293853;
-  background-position: 50% 50%;
-  background-size: cover;
-
-  transition: right 250ms $transition, left 250ms $transition;
-}
-
-.thumbnail--awesome {
-  background-image: url("http://fc05.deviantart.net/fs70/f/2010/102/9/0/Google_Chrome_Wallpaper_by_dreski1992.jpg");
-}
-
-.thumbnail__overlay {
-  position: relative;
-  padding-top: $showcase-height / 2 - 0.5em;
-  height: 100%;
-
-  background: rgba(0,0,0,0.4);
-
-  text-align: center;
-
-  opacity: 0;
-
-  transition: opacity 250ms $transition;
-}
-
-// Description
-.desc {
-  position: absolute;
-  max-width: 300px;
-  height: 100%;
-  top: 0;
-  right: 0;
-  padding: 20px;
-  z-index: 2;
-
-  background: white;
-
-  text-align: center;
-
-  transition: background 250ms $transition, color 250ms, width 250ms $transition, padding 250ms $transition;
-
-  &:after {
-    display: block;
-    width: 0;
-    height: 0;
-    position: absolute;
-    top: 50%;
-    left: -20px;
-    margin-top: -10px;
-    border-style: solid;
-    border-width: 10px;
-    border-color: transparent #fff transparent transparent;
-    content: "";
-    transition: border-color 250ms;
-  }
-}
-
-.showcase:hover {
-
-  .thumbnail {
-    right: 325px;
-    left: -25px;
-  }
-  .thumbnail__overlay {
-    opacity: 1;
-  }
-  .desc {
-    max-width: 350px;
-    padding-left: 45px;
-    padding-right: 45px;
-
-    background: #202426;
-
-    color: #fff;
-
-    &:after {
-      border-color: transparent #202426 transparent transparent;
-    }
-  }
-}
-
-
-// Inverted Project
-.showcase--inverted .thumbnail {
-  right: 0;
-  left: 300px;
-}
-
-.showcase--inverted .desc {
-  left: 0;
-  right: auto;
-
-  &:after {
-    left: auto;
-    right: -20px;
-    border-color: transparent transparent transparent #fff;
-  }
-}
-
-.showcase--inverted:hover {
-
-  .thumbnail {
-    left: 325px;
-    right: -25px;
-  }
-
-  .desc {
-
-    &:after {
-      border-color: transparent transparent transparent #202426;
-    }
-  }
-}
-
-// Button styling
-.btn {
-  padding: 1em 2em;
-
-  border: 0.15em solid #fff;
-
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
-
-  transition: background 250ms;
-
-  &:hover {
-    background: rgba(0,0,0,0.6);
-  }
 }
 .contact
 {
