@@ -267,24 +267,24 @@ h2
 }
 .projects-previews a, .projects .preview-image
 {
-	background: red url(../img/placeholder.gif) no-repeat center center;
+	background: red url(../img/gallery/dinosaurus-project.png) no-repeat center center;
 	background-size: cover;
 }
 .projects-previews li:nth-of-type(2) a, .projects > li:nth-of-type(2) .preview-image
 {
-	background: yellow url(../img/placeholder.gif) no-repeat center center;
+	background: yellow url(../img/gallery/20000-project.png) no-repeat center center;
 	background-size: cover;
 }
 
 .projects-previews li:nth-of-type(3) a, .projects > li:nth-of-type(3) .preview-image
 {
-	background: blue url(../img/placeholder.gif) no-repeat center center;
+	background: blue url(../img/gallery/sleipnir-project.png) no-repeat center center;
 	background-size: cover;
 }
 
 .projects-previews li:nth-of-type(4) a, .projects > li:nth-of-type(4) .preview-image
 {
-	background: purple url(../img/placeholder.gif) no-repeat center center;
+	background: purple url(../img/gallery/night-project.jpg) no-repeat center center;
 	background-size: cover;
 }
 .project-title
@@ -492,7 +492,10 @@ li.selected .project-title,
 			transform: translateX(-50%) scale(1);
 		}
 }
-
+#about
+{
+	padding-left: 5vw;
+}
 #timeline
 {
 	position: relative;
@@ -997,7 +1000,9 @@ nav
 .presentation
 {
 	max-width: $content-width;
-	margin: auto;
+	padding-left: 5vw;
+	padding-right: 5vw;
+	margin-bottom: 100px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -1026,6 +1031,10 @@ nav
   background: #415a6c;
   width: 100%;
   min-height: 1500px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 .parallax-content h1
 {
@@ -1156,6 +1165,63 @@ nav
 		width: 100%;
 	}
 }
+.skills
+{
+	width: 100%;
+	padding-left: 5vw;
+	padding-right: 5vw;
+
+}
+.skill-bar
+{
+	width: 100%;
+	height: 30px;
+	border-radius: 5px;
+	background-color: white;
+	margin-bottom: 20px;
+}
+.progressbar
+{
+	height: 100%;
+	padding-left: 5px;
+	font-size: 0.5em;
+}
+.bar1
+{
+	width: 75%;
+	background-color: red;
+}
+.bar2
+{
+	width: 30%;
+	background-color: yellow;
+}
+.bar3
+{
+	width: 60%;
+	background-color: orange;
+}
+.bar4
+{
+	width: 40%;
+	background-color: purple;
+}
+.bar5
+{
+	width: 40%;
+	background-color: lightblue;
+}
+.bar6
+{
+	width: 50%;
+	background-color: grey;
+}
+.bar7
+{
+	width: 70%;
+	background-color: blue;
+}
+
 .projects-preview li
 {
 	height: 25%;
@@ -1183,6 +1249,16 @@ nav
 	{
 		transform: translateY(-75%);
 	}
+}
+.projects
+{
+	overflow: scroll;
+	overflow-x:hidden;
+}
+::-webkit-scrollbar
+{
+	width:0px;
+	background: transparent;
 }
 .projects > li
 {
