@@ -27,12 +27,20 @@
   background: #293853;
   background-position: 50% 50%;
   background-size: cover;
+	visibility: hidden;
 
   transition: right 250ms $transition, left 250ms $transition;
+	@include MQ(M)
+	{
+		visibility: visible;
+	}
 }
 
-.thumbnail--awesome {
+.thumbnail--dante {
   background-image: url("../img/gallery/dante.png");
+}
+.thumbnail--javascript {
+	background-image: url("../img/gallery/javascript.png");
 }
 .javascript
 {
@@ -55,7 +63,7 @@
 // Description
 .desc {
   position: absolute;
-  max-width: 300px;
+  width: 100%;
   height: 100%;
   top: 0;
   right: 0;
@@ -66,8 +74,11 @@
 
   text-align: center;
 
-  transition: background 250ms $transition, color 250ms, width 250ms $transition, padding 250ms $transition;
-
+	transition: background 250ms $transition, color 250ms, width 250ms $transition, padding 250ms $transition;
+	@include MQ(M)
+	{
+		max-width: 300px;
+	}
   &:after {
     display: block;
     width: 0;
@@ -94,14 +105,16 @@
     opacity: 1;
   }
   .desc {
-    max-width: 350px;
     padding-left: 45px;
     padding-right: 45px;
 
     background: #202426;
 
     color: #fff;
-
+		@include MQ(M)
+		{
+			max-width: 350px;
+		}
     &:after {
       border-color: transparent #202426 transparent transparent;
     }
@@ -142,7 +155,7 @@
 }
 
 // Button styling
-.btn {
+.btn, .btn-mob {
   padding: 1em 2em;
 
   border: 0.15em solid #fff;
@@ -156,4 +169,11 @@
   &:hover {
     background: rgba(0,0,0,0.6);
   }
+}
+.btn-mob
+{
+		@include MQ(M)
+		{
+			visibility: hidden;
+		}
 }
