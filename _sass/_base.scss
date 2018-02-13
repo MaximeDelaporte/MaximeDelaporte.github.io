@@ -111,14 +111,16 @@ h2
 }
 .presentation
 {
-	max-width: 100%;
+	width: 100vw;
 	padding-left: 5vw;
 	padding-right: 5vw;
-	margin-bottom: 100px;
+	padding-bottom: 100px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	background-image: url('../img/background.png');
+	background-repeat: repeat;
 
 	img{
 		max-width:200px;
@@ -331,8 +333,20 @@ nav
 .skills
 {
 	width: 100%;
+	background: beige;
+	padding:10vh 10vw;
+	border-radius: 5px;
+	-webkit-box-shadow: 2px 5px 5px rgba(0,0,0,.4);
+	-moz-box-shadow: 2px 5px 5px rgba(0,0,0,.4);
+	-o-box-shadow: 2px 5px 5px rgba(0,0,0,.4);
+	box-shadow: 2px 5px 5px rgba(0,0,0,.4);
 
-
+	p
+	{
+		font-size: 0.5em;
+		color: black;
+		font-weight: lighter;
+	}
 }
 .skill-bar
 {
