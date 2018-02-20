@@ -64,7 +64,13 @@ body
 		}
 	}
 }
-
+header{
+	margin-top: 100px;
+	@include MQ(L)
+	{
+		margin:0;
+	}
+}
 a
 {
 	color: $link;
@@ -135,7 +141,12 @@ h2
 nav
 {
 	float: right;
-
+	width: 100%;
+	padding: $nav-height 0 15px;
+	@include MQ(M)
+	{
+		padding:0;
+	}
 	ul
 	{
 		list-style: none;
@@ -220,13 +231,16 @@ nav
 }
 .nav-mobile
 {
-	display:none;
+	display:block;
 	position: absolute;
 	top: 0;
 	left: 0;
 	background: $nav-background;
 	height: $nav-height;
 	width: $nav-height;
+	@include MQ(L){
+		display:none;
+	}
 }
 
 
@@ -280,26 +294,12 @@ nav
 	}
 }
 
-@media only screen and (max-width: $breakpoint)
+@media only screen and (max-width: $M)
 {
-	header
-	{
-		margin-top: 100px !important;
-	}
-	.navigation
-	{
-		top:0;
-		width: 100%;
-		position: fixed;
-	}
-	.nav-mobile
-	{
-		display: block;
-	}
 	nav
 	{
 		width: 100%;
-		padding: $nav-height 0 15px;
+
 		ul
 		{
 			display: none;
