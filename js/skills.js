@@ -10,7 +10,7 @@ $(function() {
  						.data("origWidth", $(this).width())
  						.width(0)
  						.animate({
- 							width: $(this).data("origWidth")
+ 							width: $(this).data("progress") + "%"
  						}, 1200);
  				});
      }

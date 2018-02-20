@@ -1,8 +1,7 @@
 #myself
 {
 	width: 100%;
-	background-image: url('../img/background.png');
-	background-repeat: repeat;
+	background:#F2836B;
 	padding-left: 10vw;
 	padding-right: 10vw;
 	padding-bottom: 5vh;
@@ -27,7 +26,7 @@
 		left: 18px;
 		height: 100%;
 		width: 4px;
-		background: darken($background, 5%);
+		background: darken(#F2E1AC, 5%);
 	}
 
 	@include MQ(M)
@@ -86,7 +85,7 @@
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
-	box-shadow: 0 0 0 4px $color-3, inset 0 2px 0 rgba(#000, .08), 0 3px 0 4px rgba(#000, .05) ;
+	box-shadow: 0 0 0 4px #F2E1AC, inset 0 2px 0 rgba(#000, .08), 0 3px 0 4px rgba(#000, .05) ;
 
 	img
 	{
@@ -100,19 +99,19 @@
 		margin-top: -12px;
 	}
 
-	&.picture
+	&.art
 	{
-		background: $color-4;
+		background: #CD2C24;
 	}
 
-	&.movie
+	&.game
 	{
-		background: $color-2;
+		background: #F2836B;
 	}
 
-	&.location
+	&.computer
 	{
-		background: $color-5;
+		background: #63A69F;
 	}
 
 	@include MQ(M)
@@ -163,10 +162,10 @@
 {
 	position: relative;
 	margin-left: 60px;
-	background: $color-3;
+	background: #F2E1AC;
 	@include border-radius;
 	padding: 1em;
-	box-shadow: 0 3px 0 darken($background, 5%);
+	box-shadow: 0 3px 0 darken(#F2E1AC, 5%);
 	@include clearfix;
 
 	h2
@@ -220,7 +219,7 @@
 		height: 0;
 		width: 0;
 		border: 7px solid transparent;
-		border-right: 7px solid $color-3;
+		border-right: 7px solid #F2E1AC;
 	}
 
 	@include MQ(M)
@@ -252,7 +251,7 @@
 			top: 24px;
 			left: 100%;
 			border-color: transparent;
-			border-left-color: $color-3;
+			border-left-color: #F2E1AC;
 		}
 
 		.timeline-read-more
@@ -279,7 +278,7 @@
 				left: auto;
 				right: 100%;
 				border-color: transparent;
-				border-right-color: $color-3;
+				border-right-color: #F2E1AC;
 			}
 
 			.timeline-read-more
