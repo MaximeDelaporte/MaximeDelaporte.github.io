@@ -37,7 +37,7 @@ body
 		family: $primary-font; // variables inside partials > _variables.scss
 	}
 	color: $main-text;
-	background-color: $background;
+	background-color: #F2E1AC;
 	&::after{
 		position: fixed;
 		top:0;
@@ -328,7 +328,7 @@ nav
 .skills
 {
 	width: 100%;
-	background: #F2E1AC;
+	background: #FFF1CF;
 	padding:10vh 10vw;
 	border-radius: 5px;
 	-webkit-box-shadow: 2px 5px 5px rgba(0,0,0,.4);
@@ -355,10 +355,15 @@ nav
 {
 	width:0;
 	height: 100%;
+	padding-top: 4px;
 	padding-left: 8px;
-	font-size: 0.5em;
+	font-size: 0.8rem;
 	border-top-left-radius: 25px;
 	border-bottom-left-radius: 25px;
+	@include MQ(M){
+		padding-top: 2px;
+		font-size: 1.2rem;
+	}
 }
 .bar1
 {
