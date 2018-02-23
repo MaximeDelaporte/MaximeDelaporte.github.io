@@ -141,7 +141,7 @@ h2
 nav
 {
 	float: right;
-	width: 100%;
+	width: 100vw;
 	padding: $nav-height 0 15px;
 	@include MQ(M)
 	{
@@ -441,7 +441,7 @@ article
 {
 	display: block;
 	height: 30em;
-	width: 100%;
+	width: 100vw;
 	padding:  5vh 10vw;
 	z-index: 2;
 	background-image: url("../img/gallery/contact.jpg");
