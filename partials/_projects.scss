@@ -1,7 +1,11 @@
 #game-design
 {
+	padding-top: 5vh;
 	padding-left: 10vw;
-	padding-bottom: 3vh;
+
+	h2{
+		margin-bottom:3vh;
+	}
 }
 .game-design-projects
 {
@@ -331,7 +335,8 @@
 		font-style: italic;
 		line-height: 1.2;
 		padding: .4em 2em;
-		opacity: .8;
+
+		color: white;
 	}
 	@include MQ(L)
 	{

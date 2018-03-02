@@ -90,6 +90,7 @@ h1, h2
 }
 h2
 {
+	font-size: 2.5rem;
 	color:white;
 }
 .text-replace
@@ -120,21 +121,27 @@ h2
 	width: 100vw;
 	padding-left: 5vw;
 	padding-right: 5vw;
-	padding-bottom: 100px;
+	padding-top: 10vh;
+	padding-bottom: 10vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 	background:#63A69F;
-
+	h1{
+		font-size: 5rem;
+		margin-bottom: 5vh;
+	}
 	img{
 		max-width:200px;
 	}
 	p
 	{
 		padding: 25px;
-		background-color: $color-3;
-		border-radius: 5px;
+		color: white;
+		font-style: italic;
+		font-size: 1.2rem;
+		text-align: center;
 	}
 }
 
@@ -335,7 +342,9 @@ nav
 	-moz-box-shadow: 2px 5px 5px rgba(0,0,0,.4);
 	-o-box-shadow: 2px 5px 5px rgba(0,0,0,.4);
 	box-shadow: 2px 5px 5px rgba(0,0,0,.4);
-
+	h2{
+		color:#F2594B;
+	}
 	p
 	{
 		font-size: 0.5em;
@@ -350,6 +359,7 @@ nav
 	border-radius: 25px;
 	background-color: white;
 	margin-bottom: 20px;
+	color:#FFF1CF;
 }
 .progressbar
 {
@@ -368,37 +378,37 @@ nav
 .bar1
 {
 
-	background-color: red;
+	background-color: #F2594B;
 }
 .bar2
 {
 
-	background-color: yellow;
+	background-color: #F2594B;
 }
 .bar3
 {
 
-	background-color: orange;
+	background-color: #F2594B;
 }
 .bar4
 {
 
-	background-color: purple;
+	background-color: #F2594B;
 }
 .bar5
 {
 
-	background-color: lightblue;
+	background-color: #F2594B;
 }
 .bar6
 {
 
-	background-color: grey;
+	background-color: #F2594B;
 }
 .bar7
 {
 
-	background-color: blue;
+	background-color: #F2594B;
 }
 
 
@@ -439,16 +449,23 @@ article
 
 .contact
 {
+
 	display: block;
 	height: 30em;
 	width: 100vw;
 	padding:  5vh 10vw;
 	z-index: 2;
-	background-image: url("../img/gallery/contact.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
-	-webkit-box-shadow: inset rgba(0, 0, 0, .5) 0 20px 20px;
+	background-color:#FFF1CF;
+	-webkit-box-shadow: inset rgba(95, 94, 80, .5) 0 5px 20px;
+	-moz-box-shadow: inset rgba(95, 94, 80, .5) 0 5px 20px;
+	-o-box-shadow: inset rgba(95, 94, 80, .5) 0 5px 20px;
+	box-shadow: inset rgba(95, 94, 80, .5) 0 5px 20px;
+	h2{
+		color: #F2594B;
+	}
+	h3{
+		color:#63A69F;
+	}
 }
 .social {
   display: inline-block;
@@ -462,14 +479,14 @@ article
 }
 .social-network
 {
-	border-top: 1px solid white;
+	border-top: 1px solid #F2594B;
 	width: 234px;
 	padding-top: 10px;
 }
 .pdf-resume
 {
 	margin-top: 10px;
-	border-top: 1px solid white;
+	border-top: 1px solid #F2594B;
 	padding-top: 20px;
 }
 .pdf-resume-link {
