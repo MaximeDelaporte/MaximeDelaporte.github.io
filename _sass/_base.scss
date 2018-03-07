@@ -129,8 +129,11 @@ h2
 	flex-direction: column;
 	background:#63A69F;
 	h1{
-		font-size: 5rem;
+		font-size: 3rem;
 		margin-bottom: 5vh;
+		@include MQ(M){
+			font-size: 5rem;
+		}
 	}
 	img{
 		max-width:200px;
