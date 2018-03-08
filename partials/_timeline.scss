@@ -173,7 +173,10 @@
 	{
 		color: $color-1;
 	}
-
+	h3
+	 {
+		 font-size: 1.1em;
+	 }
 	p, .timeline-read-more, .timeline-date
 	{
 		@include font-size(13px);

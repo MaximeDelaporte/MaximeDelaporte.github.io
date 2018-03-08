@@ -52,10 +52,14 @@ background-color: #F2E1AC;
   {
     display: flex;
     flex-direction: column;
-    max-width: 80vw;
+    max-width: 100vw;
     h1,h2
     {
       color:#F2594B;
+      font-size:1.5rem;
+      @include MQ(L){
+        font-size:2rem;
+      }
     }
 
     @media only screen and (min-width: 1440px)
